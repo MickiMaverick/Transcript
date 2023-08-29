@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class TranscriptTest {
     private Transcript testTranscript;
@@ -14,15 +15,17 @@ public class TranscriptTest {
     @Before
     public void setUp(){
         testTranscript = new Transcript("Michael Berger", 9999);
+        testTranscript.addGrade("CPSC-210", 3.5);
+        testTranscript.addGrade("ENGL-201", 4.0);
 
     }
 
     //Make sure a grade is actually added
     @Test
     public void testAddGrade(){
-        assertEquals(null, testTranscript.getCourseAndGrade("CPSC-210"));
-        testTranscript.addGrade("CPSC-210", 3.0);
-        assertEquals("CPSC-210: 3.0", testTranscript.getCourseAndGrade("CPSC-210"));
+        assertEquals("course not taken", testTranscript.getCourseAndGrade("CPSC-110"));
+        testTranscript.addGrade("CPSC-110", 3.1);
+        assertEquals("CPSC-110: 3.1", testTranscript.getCourseAndGrade("CPSC-110"));
     }
 
     //Make sure we get the correct grade for a course

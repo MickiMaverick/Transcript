@@ -24,9 +24,6 @@ public class Main {
         System.out.print(t1.getStudentName() + ": ");
         t1.printTranscript();
 
-        // Jane Doe: CPSC-210: 3.5, ENGL-201: 4.0, CPSC-110: 3.1,
-        // GPA: 3.533333333333333
-
         System.out.println(" ... print GPA ...");
         System.out.println("GPA: " + t1.getGPA());
 
