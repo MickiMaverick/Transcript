@@ -4,6 +4,8 @@ import model.Transcript;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class TranscriptTest {
@@ -12,6 +14,7 @@ public class TranscriptTest {
     @Before
     public void setUp(){
         testTranscript = new Transcript("Michael Berger", 9999);
+
     }
 
     //Make sure a grade is actually added
@@ -45,7 +48,7 @@ public class TranscriptTest {
                 + testTranscript.getCourseAndGrade("ENGL-201"));
         double GPA = testTranscript.getGPA();
         System.out.println("GPA is " + GPA);
-        assertEquals(GPA, 2.0, 0.1);
+        assertEquals(2.0, GPA, 0.1);
     }
 
     //Make sure getting the correct student name
