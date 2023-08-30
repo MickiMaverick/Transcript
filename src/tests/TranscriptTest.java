@@ -31,27 +31,20 @@ public class TranscriptTest {
     //Make sure we get the correct grade for a course
     @Test
     public void testGetCourseAndGrade(){
-        assertEquals(null, testTranscript.getCourseAndGrade("CPSC-210"));
-        testTranscript.addGrade("CPSC-210", 3.0);
-        assertEquals("CPSC-210: 3.0", testTranscript.getCourseAndGrade("CPSC-210"));
+        assertEquals("course not taken", testTranscript.getCourseAndGrade("CPSC-110"));
+        testTranscript.addGrade("CPSC-110", 3.1);
+        assertEquals("CPSC-110: 3.1", testTranscript.getCourseAndGrade("CPSC-110"));
     }
 
     //Make sure getting the correct GPA
     @Test
     public void testGetGPA(){
-        testTranscript.addGrade("CPSC-210", 3.0);
-        System.out.println("Does the course "
-                + "CPSC-210"
-                + " has the grade "
-                + testTranscript.getCourseAndGrade("CPSC-210"));
-        testTranscript.addGrade("ENGL-201", 1.0);
-        System.out.println("Does the course "
-                + "ENGL-201"
-                + " has the grade "
-                + testTranscript.getCourseAndGrade("ENGL-201"));
         double GPA = testTranscript.getGPA();
-        System.out.println("GPA is " + GPA);
-        assertEquals(2.0, GPA, 0.1);
+        assertEquals(3.75, GPA, 0.1);
+        testTranscript.addGrade("CPSC-110", 3.1);
+        GPA = testTranscript.getGPA();
+        assertEquals(3.53, GPA, 0.1);
+
     }
 
     //Make sure getting the correct student name
